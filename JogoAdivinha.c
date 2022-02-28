@@ -13,7 +13,7 @@ void titulo(){
 }
 
 void jogar(int dificuldade, char player[10]){
-    int numSecreto, chute, flag=0, tentativa=1;
+    int numSecreto, chute, flag=0, tentativa=1,chances;
     float pontuacao = 500;
 
     srand(time(0)); //seed para o numero aleatorio da função rand
@@ -21,17 +21,31 @@ void jogar(int dificuldade, char player[10]){
                                 //da divisão por 100 garante que seja um numero
                                 //menor que 100
 
+    if (dificuldade==1){
+        chances=15;
+    }
+    else if(dificuldade==2){
+        chances=9;
+    }
+    else{
+        chances=5;
+    }
+
     titulo();
     printf("Voce deve adivinhar o numero:\n");
 
     while(flag==0){
-        printf("** %da. Tentativa **\n", tentativa);
+        if(tentativa==chances){
+            printf("** ULTIMA TENTATIVA **\n");
+        }
+        else{
+            printf("**  %da. Tentativa  **\n", tentativa);
+        }
         printf("Digite o seu chute: ");
         scanf("%d",&chute);
 
         if(chute == numSecreto){
-            printf("Parabens! Voce acertou o numero!\n\n");
-            flag=1;
+            flag=1; //fim de jogo vitoria
         }
         else if(chute < numSecreto){
             printf("O numero secreto e MAIOR que %d!\n\n",chute);
@@ -43,10 +57,27 @@ void jogar(int dificuldade, char player[10]){
 
         pontuacao -= (abs(numSecreto-chute));   //A cada tentativa, é tirado a diferenca
                                                 //do chute pelo numSecreto da pontuaçao total
+
+        if(tentativa>chances){
+            flag=1; //fim de jogo derrota
+            pontuacao=0;
+        }
+    }
+
+    titulo();
+    if(tentativa>chances){ //perdeu
+        printf("Voce perdeu!! O numero secreto era %d\n", numSecreto);
+    }
+    else{ //venceu
+        printf("Parabens!! Você descobriu o numero secreto!! ** %d **\n", numSecreto);
     }
 
     printf("Sua pontuacao: %.2f\n",pontuacao);
-    printf("Obrigado por Jogar!\n\n");
+    printf("Obrigado por Jogar!\n");
+
+    getchar(); //limpar buffer
+    printf("\nPressione enter para voltar ao menu: \n");
+    getchar();
 }
 
 void menu(){
