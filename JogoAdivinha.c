@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <conio.h>
 #include <time.h>
 
 void titulo(){
@@ -19,6 +20,7 @@ void jogar(int dificuldade, char player[10]){
                                 //da divisão por 100 garante que seja um numero
                                 //menor que 100
 
+    system("cls");
     titulo();
     printf("Voce deve adivinhar o numero:\n");
 
@@ -61,7 +63,20 @@ void menu(){
 
         switch(op){
             case 1:
+                system("cls");
+                titulo();
+
+                printf("Digite o nick do jogador: ");
+                scanf("%s",&player);
+
+                printf("\nEscolha a dificuldade: \n");
+                printf("1. Facil    (15 tentativas)\n");
+                printf("2. Medio    (09 tentativas)\n");
+                printf("3. Dificil  (05 tentativas)\n");
+                scanf("%d",&dificuldade);
+
                 jogar(dificuldade,player);
+
                 break;
             case 2:
                 //instrucoes
