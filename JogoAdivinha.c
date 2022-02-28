@@ -10,37 +10,7 @@ void titulo(){
     printf("\\_/ \\_/\\__,_|_| \\_/ |_|_| |_|_| |_|\\__,_|_| |_|\\__,_|\\___/  \n\n\n"); //Asc2 art generator patorjk.com
 }
 
-void menu(){
-    int op,flag=0;
-
-    do{
-        titulo();
-        printf("1. Jogar\n");
-        printf("2. Instrucoes\n");
-        printf("3. Recordes\n");
-        printf("4. Sair\n");
-
-        switch(op){
-            case 1:
-                //funcao jogar
-                break;
-            case 2:
-                //instrucoes
-                break;
-            case 3:
-                //recordes
-                break;
-            case 4:
-                flag=1;
-                break;
-            default:
-                printf ("Valor invalido!\n");
-
-        }
-    }while(flag==0);
-}
-
-int main(){
+void jogar(int dificuldade, char player[10]){
     int numSecreto, chute, flag=0, tentativa=1;
     float pontuacao = 500;
 
@@ -74,6 +44,42 @@ int main(){
     }
 
     printf("Sua pontuacao: %.2f\n",pontuacao);
-    printf("Obrigado por Jogar!");
+    printf("Obrigado por Jogar!\n\n");
+}
+
+void menu(){
+    int op,flag=0,dificuldade;
+    char player[10];
+
+    do{
+        titulo();
+        printf("1. Jogar\n");
+        printf("2. Instrucoes\n");
+        printf("3. Recordes\n");
+        printf("4. Sair\n");
+        scanf("%d",&op);
+
+        switch(op){
+            case 1:
+                jogar(dificuldade,player);
+                break;
+            case 2:
+                //instrucoes
+                break;
+            case 3:
+                //recordes
+                break;
+            case 4:
+                flag=1;
+                break;
+            default:
+                printf ("Valor invalido!\n");
+
+        }
+    }while(flag==0);
+}
+
+int main(){
+    menu();
     return 0;
 }
