@@ -4,7 +4,7 @@
 
 int main(){
     int numSecreto, chute, flag=0, tentativa=1;
-    float pontuacao = 1000;
+    float pontuacao = 500;
 
     srand(time(0)); //seed para o numero aleatorio da função rand
     numSecreto = rand() % 100;  //rand gera um numero aleatorio. O resto
@@ -33,6 +33,12 @@ int main(){
             printf("O numero secreto e MENOR que %d!\n\n",chute);
         }
         tentativa++;
+
+        pontuacao -= (abs(numSecreto-chute));   //A cada tentativa, é tirado a diferenca
+                                                //do chute pelo numSecreto da pontuaçao total
     }
+
+    printf("Sua pontuacao: %.2f\n",pontuacao);
+    printf("Obrigado por Jogar!");
     return 0;
 }
