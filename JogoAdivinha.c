@@ -1,8 +1,14 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
 
 int main(){
-    int numSecreto = 33, chute;
+    int numSecreto, chute;
+
+    srand(time(0)); //seed para o numero aleatorio
+    numSecreto = rand() % 100;  //rand gera um numero aleatorio. O resto
+                                //da divisão por 100 garante que seja um numero
+                                //menor que 100
 
 	printf("******************************************\n");
 	printf("* Bem Vindo ao nosso jogo de adivinhacao *\n");
