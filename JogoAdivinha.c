@@ -4,11 +4,12 @@
 #include <time.h>
 
 void titulo(){
-    printf("   _       _ _       _       _                     _        \n");
-    printf("  /_\\   __| (_)_   _(_)_ __ | |__   __ _ _ __   __| | ___   \n");
-    printf(" //_\\\\ / _` | \\ \\ / / | '_ \\| '_ \\ / _` | '_ \\ / _` |/ _ \\  \n");
-    printf("/  _  \\ (_| | |\\ V /| | | | | | | | (_| | | | | (_| | (_) | \n");
-    printf("\\_/ \\_/\\__,_|_| \\_/ |_|_| |_|_| |_|\\__,_|_| |_|\\__,_|\\___/  \n\n\n"); //Asc2 art generator patorjk.com
+    system("cls");
+    printf("            _       _ _       _       _                     _        \n");
+    printf("           /_\\   __| (_)_   _(_)_ __ | |__   __ _ _ __   __| | ___   \n");
+    printf("          //_\\\\ / _` | \\ \\ / / | '_ \\| '_ \\ / _` | '_ \\ / _` |/ _ \\  \n");
+    printf("         /  _  \\ (_| | |\\ V /| | | | | | | | (_| | | | | (_| | (_) | \n");
+    printf("         \\_/ \\_/\\__,_|_| \\_/ |_|_| |_|_| |_|\\__,_|_| |_|\\__,_|\\___/  \n\n\n"); //Asc2 art generator patorjk.com
 }
 
 void jogar(int dificuldade, char player[10]){
@@ -20,7 +21,6 @@ void jogar(int dificuldade, char player[10]){
                                 //da divisão por 100 garante que seja um numero
                                 //menor que 100
 
-    system("cls");
     titulo();
     printf("Voce deve adivinhar o numero:\n");
 
@@ -55,6 +55,7 @@ void menu(){
 
     do{
         titulo();
+        printf("Digite o numero da opcao desejada:\n");
         printf("1. Jogar\n");
         printf("2. Instrucoes\n");
         printf("3. Recordes\n");
@@ -63,7 +64,6 @@ void menu(){
 
         switch(op){
             case 1:
-                system("cls");
                 titulo();
 
                 printf("Digite o nick do jogador: ");
@@ -75,26 +75,50 @@ void menu(){
                 printf("3. Dificil  (05 tentativas)\n");
                 scanf("%d",&dificuldade);
 
-                jogar(dificuldade,player);
+                jogar(dificuldade,player); //função onde o jogo acontece.
 
                 break;
             case 2:
-                //instrucoes
+                titulo();
+
+                printf("    O jogo consiste em adivinhar um numero secreto. O numero e gerado \n");
+                printf("aleatoriamente no inicio de cada partida. Apos cada jogada, e mostrado\n");
+                printf("se o jogador acertou ou se o numero secreto e maior ou menor que o chu\n");
+                printf("te digitado.\n");
+                printf("    A pontuacao e calculada pela diferenca entre o chute e o numero se\n");
+                printf("creto. A pontuacao maxima e de 500 pontos, e a cada jogada a diferenca\n");
+                printf("e deduzida dessa pontuacao.\n");
+
+                getchar(); //limpar buffer
+                printf("\nPressione enter para voltar ao menu: \n");
+                getchar();
                 break;
             case 3:
-                //recordes
+                titulo();
+                printf("Em breve!!\n");
+
+                getchar(); //limpar buffer
+                printf("\nPressione enter para voltar ao menu: \n");
+                getchar();
                 break;
             case 4:
                 flag=1;
                 break;
             default:
+                titulo();
                 printf ("Valor invalido!\n");
+                getchar(); //limpar buffer
+                printf("\nPressione enter para voltar ao menu: \n");
+                getchar();
+
 
         }
     }while(flag==0);
 }
 
 int main(){
+
     menu();
+
     return 0;
 }
