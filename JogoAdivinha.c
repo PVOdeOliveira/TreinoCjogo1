@@ -2,6 +2,14 @@
 #include <stdio.h>
 #include <time.h>
 
+void titulo(){
+    printf("   _       _ _       _       _                     _        \n");
+    printf("  /_\\   __| (_)_   _(_)_ __ | |__   __ _ _ __   __| | ___   \n");
+    printf(" //_\\\\ / _` | \\ \\ / / | '_ \\| '_ \\ / _` | '_ \\ / _` |/ _ \\  \n");
+    printf("/  _  \\ (_| | |\\ V /| | | | | | | | (_| | | | | (_| | (_) | \n");
+    printf("\\_/ \\_/\\__,_|_| \\_/ |_|_| |_|_| |_|\\__,_|_| |_|\\__,_|\\___/  \n\n\n"); //Asc2 art generator patorjk.com
+}
+
 int main(){
     int numSecreto, chute, flag=0, tentativa=1;
     float pontuacao = 500;
@@ -11,10 +19,7 @@ int main(){
                                 //da divisão por 100 garante que seja um numero
                                 //menor que 100
 
-    printf("******************************************\n");
-    printf("* Bem Vindo ao nosso jogo de adivinhacao *\n");
-    printf("******************************************\n\n\n");
-
+    titulo();
     printf("Voce deve adivinhar o numero:\n");
 
     while(flag==0){
