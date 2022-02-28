@@ -5,7 +5,7 @@
 int main(){
     int numSecreto, chute;
 
-    srand(time(0)); //seed para o numero aleatorio
+    srand(time(0)); //seed para o numero aleatorio da função rand
     numSecreto = rand() % 100;  //rand gera um numero aleatorio. O resto
                                 //da divisão por 100 garante que seja um numero
                                 //menor que 100
